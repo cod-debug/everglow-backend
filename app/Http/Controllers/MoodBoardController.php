@@ -25,7 +25,7 @@ class MoodBoardController extends Controller
     }
 
     public function postMood(Request $request){
-        $ip_address = $this->getPublicIpAddress();
+        $ip_address = base64_decode($request->get('ip_address'));
         $mood = $request->mood;
         $day = $request->day;
 
@@ -62,7 +62,7 @@ class MoodBoardController extends Controller
 
     public function getMoodCount(Request $request){
         $day = $request->get('day');
-        $ip_address = $this->getPublicIpAddress();
+        $ip_address = base64_decode($request->get('ip_address'));
         $moods = [
             'wow',
             'happy',

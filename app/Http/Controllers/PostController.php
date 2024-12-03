@@ -29,6 +29,7 @@ class PostController extends Controller
     }
 
     public function upload(Request $request){
+        $ip_address = base64_decode($request->get('ip_address'));
         // Validate the file input
         $request->validate([
             'file' => 'required|file|mimes:jpg,png,jpeg,JPEG,PNG|max:2048', // Adjust rules as needed
@@ -51,7 +52,7 @@ class PostController extends Controller
         $file->move($destinationPath, $file_name);
         
         PostModel::create([
-            'ip_address' => $this->getPublicIpAddress(),
+            'ip_address' => $ip_address,
             'caption' => $caption,
             'image_name' => $file_name
         ]);
