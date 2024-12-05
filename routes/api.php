@@ -29,4 +29,9 @@ Route::prefix($version)->group(function(){
         Route::get('', 'PostController@getPosts');
         Route::post('upload', 'PostController@upload');
     });
+    
+    Route::prefix('session-comment')->group(function(){
+        Route::get('', 'SessionCommentController@getComment');
+        Route::post('upload', 'SessionCommentController@saveComment');
+    });
 });
