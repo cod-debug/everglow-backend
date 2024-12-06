@@ -15,6 +15,5 @@ class SessionCommentModel extends Model
         'session_type',
         'ip_address',
         'comment',
-        'image_name'
     ];
 }
