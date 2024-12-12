@@ -17,7 +17,7 @@ class PostController extends Controller
         $ip_address = base64_decode($request->get('ip_address'));
         // Validate the file input
         $request->validate([
-            'file' => 'required|file|mimes:jpg,png,jpeg,JPEG,PNG|max:2048', // Adjust rules as needed
+            'file' => 'required|file|mimes:jpg,png,jpeg,JPEG,PNG|max:10240', // Adjust rules as needed
         ]);
         $caption = $request->caption;
         // Get the uploaded file
